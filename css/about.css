@@ -1,0 +1,35 @@
+main {
+  padding: 0 5em 0 5em;
+}
+
+ul#homeNavi li:nth-child(2) a p {
+  display: inline-block;
+  text-decoration: underline;
+}
+
+section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  /* border: 1px solid #000; */
+  display: flex;
+}
+
+section div.img {
+  flex: 1;
+}
+
+section div.expl {
+  flex: 1;
+}
+
+div#download {
+  padding: 20px;
+  text-align: center;
+}
+
+div#download button {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 1em; 
+}

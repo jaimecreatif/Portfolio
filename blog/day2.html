@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day2</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/blog.css">
+</head>
+<body>
+  <header>
+    <ul id="homeNavi">
+      <li><a href="/home.html"><p>home</p></a></li>
+      <li><a href="/about.html"><p>about</p></a></li>
+      <li><a href="/blog.html"><p>blog</p></a></li>
+      <li><a href="/work.html"><p>work</p></a></li>
+      <li><a href="/contact.html"><p>contact</p></a></li>
+    </ul>
+  </header>
+  <body>
+    <h1>📌 React Study Day 2 Summary</h1>
+
+    <h2>✅ Key Concepts</h2>
+    <ul>
+        <li><strong>JSX Syntax Error Fix:</strong> Self-closing tags like <code>&lt;img /&gt;</code> must be closed properly.</li>
+        <li><strong>Return Statement in JSX:</strong> Use parentheses <code>()</code> around JSX to prevent auto-inserted semicolons.</li>
+        <li><strong>map() Function Parameters:</strong> <code>map((element, index, array) => {...})</code></li>
+        <li><strong>Importance of Key in map():</strong> Helps React optimize rendering performance.</li>
+        <li><strong>Variable Naming in map():</strong> You can name them freely, but using <code>plural (users)</code> for arrays and <code>singular (user)</code> for elements improves readability.</li>
+        <li><strong>Loading Local Images in React:</strong> Use <code>public</code> for static images (<code>/images/user1.jpg</code>) or <code>import</code> for assets in <code>src</code>.</li>
+    </ul>
+
+    <h2>❓ Q&A</h2>
+    <h3>1️⃣ Do I have to name the variable as "users"?</h3>
+    <p><strong>Q:</strong> Do I have to name my array variable as <code>users</code>?</p>
+    <p><strong>A:</strong> No, you can name it anything, but using a plural form for arrays and a singular form for elements improves readability.</p>
+
+    <h3>2️⃣ Where does the "user" variable in map() come from?</h3>
+    <p><strong>Q:</strong> Where does <code>user</code> in <code>users.map((user) => ...)</code> come from?</p>
+    <p><strong>A:</strong> The first parameter of <code>map()</code> is automatically assigned each element of the array during iteration.</p>
+
+    <h3>3️⃣ Can I name both the array and map variable "users"?</h3>
+    <p><strong>Q:</strong> Can I do <code>users.map((users) => ...)</code>?</p>
+    <p><strong>A:</strong> Yes, it will work, but it’s not recommended because it reduces readability.</p>
+
+    <h3>4️⃣ What happens if I don't provide a key in map()?</h3>
+    <p><strong>Q:</strong> What happens if I don't include <code>key</code> in map()?</p>
+    <p><strong>A:</strong> It will still work, but React may not efficiently track element changes, leading to unnecessary re-renders.</p>
+
+    <h3>5️⃣ How do I load images from the local directory?</h3>
+    <p><strong>Q:</strong> How do I display images from my project directory?</p>
+    <p><strong>A:</strong> Use <code>/public</code> for static images (<code>&lt;img src="/images/user1.jpg" /&gt;</code>) or <code>import</code> for assets inside <code>src</code>.</p>
+
+    <h2>📝 Tasks & Solutions</h2>
+    <h3>1️⃣ Fix JSX Syntax</h3>
+    <p><strong>Task:</strong> Find the error in the JSX code below.</p>
+    <pre>
+&lt;img src="react-logo.png"&gt; // ❌ Incorrect
+    </pre>
+    <p><strong>Solution:</strong></p>
+    <pre>
+&lt;img src="react-logo.png" /&gt; // ✅ Correct
+    </pre>
+
+    <h3>2️⃣ Create a UserCard Component</h3>
+    <p><strong>Task:</strong> Create a <code>UserCard</code> component that dynamically displays a user’s name and job.</p>
+    <p><strong>Solution:</strong></p>
+    <pre>
+function UserCard(props) {
+  return (
+    &lt;div&gt;
+      &lt;p&gt;👤 Name: {props.name}&lt;/p&gt;
+      &lt;p&gt;💼 Job: {props.job}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+    </pre>
+
+    <h3>3️⃣ Render Multiple UserCards</h3>
+    <p><strong>Task:</strong> Use <code>map()</code> to render multiple <code>UserCard</code> components.</p>
+    <p><strong>Solution:</strong></p>
+    <pre>
+const users = [
+  { id: 1, name: "Kim", job: "Software Engineer" },
+  { id: 2, name: "Lee", job: "Data Scientist" },
+  { id: 3, name: "Park", job: "Product Manager" }
+];
+
+function UserList() {
+  return (
+    &lt;div&gt;
+      {users.map((user) => (
+        &lt;UserCard key={user.id} name={user.name} job={user.job} /&gt;
+      ))}
+    &lt;/div&gt;
+  );
+}
+    </pre>
+
+    <h3>4️⃣ (Challenge) Style & Add Images</h3>
+    <p><strong>Task:</strong> Add an image to <code>UserCard</code> and apply basic styling.</p>
+    <p><strong>Solution:</strong></p>
+    <pre>
+function UserCard({ name, job, image }) {
+  return (
+    &lt;div style={{border: "1px solid black", padding: "10px", margin: "10px", borderRadius: "10px", textAlign: "center", width: "200px"}}&gt;
+      &lt;img src={image} alt={name} style={{ width: "100px", height: "100px", borderRadius: "50%" }} /&gt;
+      &lt;p&gt;👤 Name: {name}&lt;/p&gt;
+      &lt;p&gt;💼 Job: {job}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+    </pre>
+
+    <p>🎉 Congratulations! You have completed Day 2 of React learning! 🚀</p>
+</body>
+
+</body>
+</html>

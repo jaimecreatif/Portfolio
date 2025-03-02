@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 1</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/blog.css">
+</head>
+<body>
+  <header>
+    <ul id="homeNavi">
+        <li><a href="/home.html"><p>home</p></a></li>
+        <li><a href="/about.html"><p>about</p></a></li>
+        <li><a href="/blog.html"><p>blog</p></a></li>
+        <li><a href="/work.html"><p>work</p></a></li>
+        <li><a href="/contact.html"><p>contact</p></a></li>
+      </ul>
+  </header>
+  <section>
+    <h1>📖 React Study Notes - Day 1</h1>
+
+<h2>1️⃣ What is React?</h2>
+<p>React is a <strong>JavaScript UI library</strong> developed by <strong>Meta (formerly Facebook)</strong>.</p>
+<ul>
+    <li>✅ <strong>Component-based:</strong> Reusable and independent UI components.</li>
+    <li>✅ <strong>Virtual DOM:</strong> Efficiently updates only the changed parts of the UI.</li>
+    <li>✅ <strong>Declarative approach:</strong> Focuses on "what" the UI should look like.</li>
+</ul>
+
+<h2>2️⃣ Setting Up React Development Environment</h2>
+<p>Instead of using Create React App (CRA), we use <strong>Vite</strong>, which is much faster and more lightweight.</p>
+
+<h3>✅ Installation Guide</h3>
+<pre>
+1️⃣ Check if Node.js is installed:
+    <code>node -v</code>
+If not installed:
+    <code>brew install node</code>
+
+2️⃣ Create a Vite project:
+    <code>npm create vite@latest my-react-app --template react</code>
+    <code>cd my-react-app</code>
+    <code>npm install</code>
+    <code>npm run dev</code>
+</pre>
+<p>✅ Open <code>http://localhost:5173</code> to see the project running! 🚀</p>
+
+<h2>3️⃣ Understanding JSX</h2>
+<p>JSX allows JavaScript and HTML-like syntax to be mixed in React components.</p>
+<h3>✅ JSX Rules</h3>
+<ul>
+    <li>JSX must have a single parent tag.</li>
+    <li>JavaScript expressions must be wrapped in <code>{ }</code>.</li>
+    <li>Use <code>className</code> instead of <code>class</code>.</li>
+    <li>Self-closing tags must end with <code>/</code>.</li>
+</ul>
+
+<h2>4️⃣ Understanding `useState`</h2>
+<p>`useState` is a <strong>React Hook</strong> used to manage a component's <strong>state</strong>.</p>
+
+<pre><code>
+import { useState } from "react";
+
+function App() {
+    const [count, setCount] = useState(0);
+
+    return (
+        &lt;div&gt;
+            &lt;p&gt;Current count: {count}&lt;/p&gt;
+            &lt;button onClick={() => setCount(count + 1)}&gt;+1 Increase&lt;/button&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+
+<h2>📝 Assignment: Applying JSX</h2>
+<h3>✅ Solution</h3>
+
+<pre><code>
+const [message, setMessage] = useState("Shall we start studying?");
+
+&lt;button onClick={() => setMessage(prev => prev === "Shall we start studying?" ? "Studying hard!" : "Shall we start studying?")}&gt;
+    {message}
+&lt;/button&gt;
+</code></pre>
+
+
+<h2>🎯 Day 1 Summary</h2>
+<ul>
+    <li>✅ React is a JavaScript UI library.</li>
+    <li>✅ Vite is used for fast project setup.</li>
+    <li>✅ JSX allows HTML-like syntax inside JavaScript.</li>
+    <li>✅ `useState` manages state in React components.</li>
+</ul>
+
+<h1>📌 React Study - Question Notes</h1>
+
+<div class="question">
+    <h2>1️⃣ What is the DOM?</h2>
+    <p>The <strong>Document Object Model (DOM)</strong> is a tree-structured representation of a webpage.</p>
+</div>
+
+<div class="question">
+    <h2>2️⃣ What is Vite?</h2>
+    <p><strong>Vite</strong> is a faster build tool for React development, providing instant updates via HMR.</p>
+</div>
+
+<div class="question">
+    <h2>3️⃣ What is "JavaScript + SWC"?</h2>
+    <p><strong>SWC (Speedy Web Compiler)</strong> is a fast JSX compiler option for better performance.</p>
+</div>
+
+<div class="question">
+    <h2>4️⃣ What is Babel?</h2>
+    <p><strong>Babel</strong> is a JavaScript compiler that converts modern ES6+ code into browser-compatible versions.</p>
+</div>
+
+<div class="question">
+    <h2>5️⃣ What does `useState` return?</h2>
+    <p>It returns an <strong>array</strong> → `[current state, update function]`.</p>
+</div>
+
+<div class="question">
+    <h2>6️⃣ How does `setCount(count + 1)` work?</h2>
+    <p>It updates the state and triggers a UI re-render.</p>
+</div>
+
+<div class="question">
+    <h2>7️⃣ Why does the UI update automatically?</h2>
+    <p>React uses a <strong>Virtual DOM</strong>, which updates only changed parts efficiently.</p>
+</div>
+
+<h2>🔥 Final Summary</h2>
+<ul>
+    <li>✅ DOM is a tree-structured representation of a webpage.</li>
+    <li>✅ Vite is a fast alternative to CRA for React development.</li>
+    <li>✅ SWC is a faster JSX compiler than Babel.</li>
+    <li>✅ Babel converts modern JS into browser-compatible code.</li>
+    <li>✅ `useState` returns `[currentState, updateFunction]`.</li>
+    <li>✅ `setCount` updates state and re-renders the UI.</li>
+    <li>✅ React optimizes rendering using the Virtual DOM.</li>
+</ul>
+
+<p>🔥 See you on <strong>Day 2</strong> for more React practice! 😊🚀</p>
+
+  </section>
+</body>
+</html>
